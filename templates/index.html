@@ -1,1 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Autism Prediction Form</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    h2 {
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+      border-radius: 2px;
+    }
+    
+    form {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    form::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+      background-size: 400% 400%;
+      animation: gradient 3s ease infinite;
+    }
+    
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    .form-section {
+      margin-bottom: 30px;
+    }
+    
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ecf0f1;
+      position: relative;
+    }
+    
+    .section-title::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      position: relative;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #34495e;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    
+    input, select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e1e8ed;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      background: white;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+    
+    input:focus, select:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    input:hover, select:hover {
+      border-color: #bdc3c7;
+    }
+    
+    select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 12px center;
+      background-repeat: no-repeat;
+      background-size: 16px;
+      padding-right: 40px;
+    }
+    
+    .scores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+    }
+    
+    .score-item {
+      text-align: center;
+      padding: 15px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 12px;
+      border: 1px solid #dee2e6;
+      transition: all 0.3s ease;
+    }
+    
+    .score-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .score-item label {
+      font-weight: 600;
+      color: #495057;
+      margin-bottom: 8px;
+    }
+    
+    .score-item input {
+      text-align: center;
+      font-weight: 600;
+      color: #667eea;
+    }
+    
+    button {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    button:hover::before {
+      left: 100%;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .prediction-result {
+      margin: 30px auto 0;
+      max-width: 600px;
+      background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500;
+      box-shadow: 0 10px 30px rgba(46, 204, 113, 0.3);
+      animation: slideIn 0.5s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .info-card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      border-left: 4px solid #667eea;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    
+    .info-card h3 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    
+    .info-card p {
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+      
+      form {
+        padding: 25px;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .scores-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 10px;
+      }
+      
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Loading animation */
+    .loading {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+    
+    .loading button {
+      position: relative;
+    }
+    
+    .loading button::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin-top: -10px;
+      margin-left: -10px;
+      border: 2px solid transparent;
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Autism Prediction in Adults</h2>
 
+    <form action="/" method="post" id="predictionForm">
+      <div class="form-section">
+        <div class="section-title">📊 Screening Test Scores (A1-A10)</div>
+        <div class="scores-grid">
+          <div class="score-item">
+            <label for="A1_Score">A1</label>
+            <input type="number" name="A1_Score" id="A1_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A2_Score">A2</label>
+            <input type="number" name="A2_Score" id="A2_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A3_Score">A3</label>
+            <input type="number" name="A3_Score" id="A3_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A4_Score">A4</label>
+            <input type="number" name="A4_Score" id="A4_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A5_Score">A5</label>
+            <input type="number" name="A5_Score" id="A5_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A6_Score">A6</label>
+            <input type="number" name="A6_Score" id="A6_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A7_Score">A7</label>
+            <input type="number" name="A7_Score" id="A7_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A8_Score">A8</label>
+            <input type="number" name="A8_Score" id="A8_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A9_Score">A9</label>
+            <input type="number" name="A9_Score" id="A9_Score" min="0" max="1" required>
+          </div>
+          <div class="score-item">
+            <label for="A10_Score">A10</label>
+            <input type="number" name="A10_Score" id="A10_Score" min="0" max="1" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="section-title">👤 Personal Information</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" min="18" max="120" required>
+          </div>
+
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" required>
+              <option value="">Select Gender</option>
+              <option value="0">Female</option>
+              <option value="1">Male</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="ethnicity">Ethnicity</label>
+            <select name="ethnicity" id="ethnicity" required>
+              <option value="">Select Ethnicity</option>
+              <option value="0">Asian</option>
+              <option value="1">Black</option>
+              <option value="2">Hispanic</option>
+              <option value="3">Latino</option>
+              <option value="4">Middle Eastern</option>
+              <option value="5">Others</option>
+              <option value="6">Pasifika</option>
+              <option value="7">South Asian</option>
+              <option value="8">Turkish</option>
+              <option value="9">White-European</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="country_of_res">Country of Residence</label>
+            <select name="country_of_res" id="country_of_res" required>
+              <option value="">Select Country</option>
+              <option value="0">Afghanistan</option>
+              <option value="1">American Samoa</option>
+              <option value="2">Angola</option>
+              <option value="3">Argentina</option>
+              <option value="4">Armenia</option>
+              <option value="5">Aruba</option>
+              <option value="6">Australia</option>
+              <option value="7">Austria</option>
+              <option value="8">Azerbaijan</option>
+              <option value="9">Bahamas</option>
+              <option value="10">Bangladesh</option>
+              <option value="11">Belgium</option>
+              <option value="12">Bolivia</option>
+              <option value="13">Brazil</option>
+              <option value="14">Burundi</option>
+              <option value="15">Canada</option>
+              <option value="16">Chile</option>
+              <option value="17">China</option>
+              <option value="18">Costa Rica</option>
+              <option value="19">Cyprus</option>
+              <option value="20">Czech Republic</option>
+              <option value="21">Ecuador</option>
+              <option value="22">Egypt</option>
+              <option value="23">Ethiopia</option>
+              <option value="24">Finland</option>
+              <option value="25">France</option>
+              <option value="26">Germany</option>
+              <option value="27">Hong Kong</option>
+              <option value="28">Iceland</option>
+              <option value="29">India</option>
+              <option value="30">Indonesia</option>
+              <option value="31">Iran</option>
+              <option value="32">Iraq</option>
+              <option value="33">Ireland</option>
+              <option value="34">Italy</option>
+              <option value="35">Japan</option>
+              <option value="36">Jordan</option>
+              <option value="37">Kazakhstan</option>
+              <option value="38">Lebanon</option>
+              <option value="39">Malaysia</option>
+              <option value="40">Mexico</option>
+              <option value="41">Nepal</option>
+              <option value="42">Netherlands</option>
+              <option value="43">New Zealand</option>
+              <option value="44">Nicaragua</option>
+              <option value="45">Niger</option>
+              <option value="46">Oman</option>
+              <option value="47">Pakistan</option>
+              <option value="48">Philippines</option>
+              <option value="49">Portugal</option>
+              <option value="50">Romania</option>
+              <option value="51">Russia</option>
+              <option value="52">Saudi Arabia</option>
+              <option value="53">Serbia</option>
+              <option value="54">Sierra Leone</option>
+              <option value="55">South Africa</option>
+              <option value="56">Spain</option>
+              <option value="57">Sri Lanka</option>
+              <option value="58">Sweden</option>
+              <option value="59">Tonga</option>
+              <option value="60">Turkey</option>
+              <option value="61">Ukraine</option>
+              <option value="62">United Arab Emirates</option>
+              <option value="63">United Kingdom</option>
+              <option value="64">United States</option>
+              <option value="65">Uruguay</option>
+              <option value="66">Vietnam</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <div class="section-title">🏥 Medical & Background Information</div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="jaundice">History of Jaundice</label>
+            <select name="jaundice" id="jaundice" required>
+              <option value="">Select Option</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="autism">Family History of Autism</label>
+            <select name="autism" id="autism" required>
+              <option value="">Select Option</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="used_app_before">Used Screening App Before</label>
+            <select name="used_app_before" id="used_app_before" required>
+              <option value="">Select Option</option>
+              <option value="0">No</option>
+              <option value="1">Yes</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="relation">Relationship to Individual</label>
+            <select name="relation" id="relation" required>
+              <option value="">Select Relationship</option>
+              <option value="0">Health Care Professional</option>
+              <option value="1">Others</option>
+              <option value="2">Parent</option>
+              <option value="3">Relative</option>
+              <option value="4">Self</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit">🔍 Get Prediction</button>
+    </form>
+
+    {% if prediction %}
+      <div class="prediction-result">
+        <strong>🎯 Prediction Result:</strong> {{ prediction }}
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    document.getElementById('predictionForm').addEventListener('submit', function(e) {
+      this.classList.add('loading');
+      document.querySelector('button').textContent = 'Processing...';
+    });
+  </script>
+</body>
+</html>
