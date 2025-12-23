@@ -1,6 +1,8 @@
 # Autism Prediction in Adults using Machine Learning
 
-A **machine learning–based screening system** for early prediction of **Autism Spectrum Disorder (ASD) in adults**, using questionnaire responses and demographic features.
+A machine learning–based screening system for early prediction of Autism Spectrum Disorder (ASD) in adults, using questionnaire responses and demographic features.
+
+**Live Demo:** https://asd-in-adults-prediction.onrender.com/
 
 ---
 
