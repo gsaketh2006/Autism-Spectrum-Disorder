@@ -20,7 +20,7 @@ Provide interpretability using feature importance
 
 Enable practical deployment through a web application
 
-📂 Dataset
+# Dataset
 
 Name: Autism Screening on Adults
 
@@ -32,7 +32,7 @@ Features: 21 (screening scores + demographic attributes)
 
 Target Variable: Class/ASD (Yes / No)
 
-Key Features
+Key Features: 
 
 A1Score to A10Score (screening questionnaire responses)
 
@@ -46,7 +46,7 @@ Country of residence
 
 Previous screening information
 
-🛠 Methodology
+# Methodology
 
 Data cleaning and missing value handling
 
@@ -68,7 +68,7 @@ Model evaluation using accuracy, precision, recall, F1-score, ROC-AUC
 
 Best model selection and deployment preparation
 
-🤖 Models Implemented
+# Models Implemented
 
 Logistic Regression
 
@@ -80,7 +80,7 @@ Random Forest Classifier
 
 Gaussian Naive Bayes
 
-⚙️ Model Optimization
+# Model Optimization
 
 Cross-validation: Stratified K-Fold (5 folds)
 
@@ -88,7 +88,7 @@ Hyperparameter tuning: GridSearchCV
 
 Feature scaling: StandardScaler (for LR, SVM, GNB)
 
-📊 Results
+# Results
 | Model               | Accuracy | ROC-AUC    |
 | ------------------- | -------- | ---------- |
 | Logistic Regression | 93%      | 1.00       |
@@ -97,7 +97,7 @@ Feature scaling: StandardScaler (for LR, SVM, GNB)
 | Gaussian NB         | 94%      | 0.99       |
 | **Random Forest**   | **95%**  | **0.9972** |
 
-🏆 Best Model
+# Best Model
 
 Random Forest Classifier was selected as the final model due to:
 
@@ -108,7 +108,7 @@ Near-perfect ROC-AUC score
 Balanced precision and recall
 
 Strong generalization and reduced overfitting
-🔍 Feature Importance (Insights)
+# Feature Importance (Insights)
 
 Most influential predictors:
 
@@ -130,7 +130,7 @@ Used_app_before
 
 Jaundice
 
-🌐 Deployment
+# Deployment
 
 Final trained model saved using pickle (.pkl)
 
@@ -140,7 +140,7 @@ Frontend built using HTML & CSS
 
 Users input screening scores and demographic details to receive predictions
 
-🧰 Tech Stack
+# Tech Stack
 
 Python
 
@@ -156,7 +156,7 @@ Flask
 
 HTML, CSS
 
-🚀 Future Improvements
+# Future Improvements
 
 Clinical validation with real patient data
 
@@ -168,7 +168,7 @@ Develop a mobile application version
 
 Improve bias handling and fairness
 
-## 👥 Authors & Collaborators
+# Authors & Collaborators
 
 This project was developed as part of a **Summer Research Internship (Campus Research Project)**.
 
