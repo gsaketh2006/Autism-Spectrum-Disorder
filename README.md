@@ -51,7 +51,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 - Train–test split (80% training, 20% testing)  
 - Class imbalance handling using **SMOTE**  
 - Model training and comparison  
-- Hyperparameter tuning using **GridSearchCV**  
+- Hyperparameter tuning using **GridSearchCV with Stratified K - Fold**  
 - Model evaluation using:
   - Accuracy
   - Precision
