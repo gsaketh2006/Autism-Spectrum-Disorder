@@ -1,10 +1,10 @@
-# 🧠 Autism Prediction in Adults using Machine Learning
+# Autism Prediction in Adults using Machine Learning
 
 A **machine learning–based screening system** for early prediction of **Autism Spectrum Disorder (ASD) in adults**, using questionnaire responses and demographic features.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 Autism Spectrum Disorder in adults often remains undiagnosed due to:
 - Subtle symptoms  
 - Lack of awareness  
@@ -15,7 +15,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 🎯 Objectives
+## Objectives
 - Build a **binary classification system** (ASD / Non-ASD)
 - Compare multiple **machine learning algorithms**
 - Handle **class imbalance** and **data quality issues**
@@ -25,14 +25,14 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 📂 Dataset
+## Dataset
 - **Name:** Autism Screening on Adults  
 - **Source:** UCI Machine Learning Repository  
 - **Total Records:** 704  
 - **Total Features:** 21  
 - **Target Variable:** `Class/ASD` (Yes / No)
 
-### 🔑 Key Features
+## Key Features
 - **Screening Scores:** A1Score – A10Score  
 - **Demographics:** Age, Gender, Ethnicity  
 - **Medical History:** Jaundice at birth, Family history of autism  
@@ -41,7 +41,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 🛠 Methodology
+## Methodology
 - Data cleaning and missing value handling  
 - Label encoding of categorical variables  
 - Outlier detection and correction  
@@ -60,7 +60,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 🤖 Models Implemented
+## Models Implemented
 - Logistic Regression  
 - Decision Tree Classifier  
 - Support Vector Machine (SVM)  
@@ -69,7 +69,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## ⚙️ Model Optimization
+## Model Optimization
 - **Cross-validation:** Stratified K-Fold (5 folds)  
 - **Hyperparameter tuning:** GridSearchCV  
 - **Feature scaling:** StandardScaler  
@@ -77,7 +77,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 📊 Results
+## Results
 | Model | Accuracy | ROC-AUC |
 |------|----------|---------|
 | Logistic Regression | 93% | 1.00 |
@@ -88,17 +88,17 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 🏆 Best Model Selection
+## Best Model Selection
 **Random Forest Classifier** was selected as the final model due to:
-- ✅ Highest accuracy (**95%**)  
-- ✅ Near-perfect ROC–AUC score  
-- ✅ Balanced precision and recall  
-- ✅ Strong generalization with reduced overfitting  
+- Highest accuracy (**95%**)  
+- Near-perfect ROC–AUC score  
+- Balanced precision and recall  
+- Strong generalization with reduced overfitting  
 
 ---
 
-## 🔍 Feature Importance (Insights)
-### 🔝 Most Influential Predictors
+## Feature Importance (Insights)
+### Most Influential Predictors
 - A9_Score  
 - A5_Score  
 - A6_Score  
@@ -106,13 +106,13 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 - Age  
 - Country of residence  
 
-### 🔻 Least Impactful Features
+### Least Impactful Features
 - Used_app_before  
 - Jaundice  
 
 ---
 
-## 🌐 Deployment
+## Deployment
 - Final trained model saved using **pickle (.pkl)**  
 - Integrated into a **Flask-based web application**  
 - Frontend developed using **HTML & CSS**  
@@ -120,7 +120,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 - **Programming:** Python  
 - **Libraries:** NumPy, Pandas, Scikit-learn  
 - **Visualization:** Matplotlib, Seaborn  
@@ -130,7 +130,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 - Clinical validation with real patient data  
 - Model explainability using **SHAP / LIME**  
 - Expand dataset for better generalization  
@@ -139,9 +139,9 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 
 ---
 
-## 👥 Authors & Collaborators
+## Authors & Collaborators
 This project was developed as part of a  
-**Summer Research Internship (Campus Research Project)**.
+**Summer Internship (Campus Research Project Under Faculty)**.
 
 - **Guggilam Leela Naga Sai Sri Saketh**  
 - **Seshagiri Bharadwaj Sai**  
@@ -154,11 +154,9 @@ This project was developed as part of a
 
 ---
 
-## 🎓 Faculty Supervisor
+## Faculty Supervisor
 - **Mr. B. L. V. Siva Rama Krishna**  
   Assistant Professor, Department of CSE  
   SRM University – AP  
 
 ---
-
-
