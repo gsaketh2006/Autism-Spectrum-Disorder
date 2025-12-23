@@ -32,7 +32,7 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 - **Total Features:** 21  
 - **Target Variable:** `Class/ASD` (Yes / No)
 
-## Key Features
+### Key Features
 - **Screening Scores:** A1Score – A10Score  
 - **Demographics:** Age, Gender, Ethnicity  
 - **Medical History:** Jaundice at birth, Family history of autism  
