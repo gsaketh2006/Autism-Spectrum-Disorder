@@ -100,6 +100,8 @@ This project proposes an **automated ML-based screening tool** to assist clinici
 ---
 
 ## Feature Importance (Insights)
+<img width="1152" height="672" alt="image" src="https://github.com/user-attachments/assets/f8f9754d-c4c0-497c-91ff-7436d62dee87" />
+
 ### Most Influential Predictors
 - A9_Score  
 - A5_Score  
